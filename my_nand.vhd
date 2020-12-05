@@ -1,8 +1,7 @@
---NAND
-
 library IEEE;
 use ieee.std_logic_1164.all;
 
+--defining NAND gate entity to do basic NAND
 entity my_nand is
 	port (P,Q : in bit; R: out bit);
 end entity my_nand;
