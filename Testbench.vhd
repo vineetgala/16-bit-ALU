@@ -1,6 +1,7 @@
 entity Testbench is 
 end Testbench;
 
+--defining a testbench with possible corner cases
 architecture tb of Testbench is
 	signal s_0,s_1,a_0,a_1,a_2,a_3,a_4,a_5,a_6,a_7,a_8,a_9,a_10,a_11,a_12,a_13,a_14,a_15,
 	b_0,b_1,b_2,b_3,b_4,b_5,b_6,b_7,b_8,b_9,b_10,b_11,b_12,b_13,b_14,b_15 : bit;

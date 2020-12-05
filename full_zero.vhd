@@ -1,16 +1,18 @@
-
 library IEEE;
 use ieee.std_logic_1164.all;
 
+--defining zero flag entity
 entity full_zero is
 	port( zr0, zr1, zr2, zr3, zr4, zr5, zr6, zr7, zr8, zr9, zr10, zr11, zr12, zr13, zr14, zr15 : in bit;
 	zz : out bit);
 end entity;
 
+--defining architecture of zero flag
 Architecture Struct of full_zero is
 
 signal i0, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14 : bit;
 
+--adding the or component
 component my_or 
 port(i_or1,i_or2 : in bit; o_myor: out bit);
 end component;
@@ -19,6 +21,7 @@ component my_not
 port(V : in bit; W: out bit);
 end component;
 
+--checking for all zeroes 
 begin
 		
 	or0 : my_or

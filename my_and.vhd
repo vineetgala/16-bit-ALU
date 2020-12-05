@@ -1,4 +1,4 @@
---AND
+--defining basic AND entity
 
 library IEEE;
 use ieee.std_logic_1164.all;

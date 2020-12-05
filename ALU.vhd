@@ -1,11 +1,13 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 
+--defining the top level entity with 34 inputs (A-16, B-16, S0 and S1) and 18 outputs (C-16, Carry and Z flag)
 entity ALU is 
 	port(S0,S1,A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15:in bit;
 	R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15,C,Z:buffer bit);
 end entity ALU;
 
+--defining top level entity architecture
 architecture Struct of ALU is
 
 	signal XR_0,XR_1,XR_2,XR_3,XR_4,XR_5,XR_6,XR_7,XR_8,XR_9,XR_10,XR_11,XR_12,XR_13,XR_14,XR_15:bit;
@@ -13,6 +15,7 @@ architecture Struct of ALU is
 	signal AR_0,AR_1,AR_2,AR_3,AR_4,AR_5,AR_6,AR_7,AR_8,AR_9,AR_10,AR_11,AR_12,AR_13,AR_14,AR_15,C_A:bit;
 	signal SR_0,SR_1,SR_2,SR_3,SR_4,SR_5,SR_6,SR_7,SR_8,SR_9,SR_10,SR_11,SR_12,SR_13,SR_14,SR_15,C_S:bit;
 	
+	--adding all necessary components
 	component full_xor is
 	port(xa0,xa1,xa2,xa3,xa4,xa5,xa6,xa7,xa8,xa9,xa10,xa11,xa12,xa13,xa14,xa15,xb0,xb1,xb2,xb3,xb4,xb5,xb6,xb7,xb8,xb9,xb10,xb11,xb12,xb13,xb14,xb15:in bit;
 	xr0,xr1,xr2,xr3,xr4,xr5,xr6,xr7,xr8,xr9,xr10,xr11,xr12,xr13,xr14,xr15:out bit);
@@ -40,7 +43,8 @@ architecture Struct of ALU is
 	component MUX_4to1 is
 	port(sel1,sel0,i0,i1,i2,i3:in bit; O4:out bit);
 	end component;
-	
+
+--creating our ALU using the components	
 begin
 Chip_XOR: full_xor
 port map(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15,

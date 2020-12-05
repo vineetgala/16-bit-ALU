@@ -1,8 +1,7 @@
---OR
-
 library IEEE;
 use ieee.std_logic_1164.all;
 
+--defining basic OR gate
 entity my_or is
 	port (i_or1,i_or2 : in bit; o_myor: out bit);
 end entity my_or;
