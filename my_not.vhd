@@ -1,8 +1,7 @@
---NOT
-
 library IEEE;
 use ieee.std_logic_1164.all;
 
+--defining basic NOT gate entity
 entity my_not is
 	port (V : in bit; W: out bit);
 end entity my_not;
