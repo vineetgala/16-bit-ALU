@@ -1,12 +1,14 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 
+--defining full adder entity which makes use of kogge stone fast adder architecture
 entity full_adder is
 	port(aa0,aa1,aa2,aa3,aa4,aa5,aa6,aa7,aa8,aa9,aa10,aa11,aa12,aa13,aa14,aa15,
 	ab0,ab1,ab2,ab3,ab4,ab5,ab6,ab7,ab8,ab9,ab10,ab11,ab12,ab13,ab14,ab15:in bit;
 	ar0,ar1,ar2,ar3,ar4,ar5,ar6,ar7,ar8,ar9,ar10,ar11,ar12,ar13,ar14,ar15,ca:out bit);
 end entity;
 
+--defining architecture of full adder
 Architecture struct of full_adder is
 
 signal 
@@ -21,7 +23,7 @@ p0_2, p1_2, p2_2, p3_2, p4_2, p5_2, p6_2, p7_2, p8_2, p9_2, p10_2, p11_2, p12_2,
 p0_3, p1_3, p2_3, p3_3, p4_3, p5_3, p6_3, p7_3, p8_3, p9_3, p10_3, p11_3, p12_3, p13_3, p14_3, p15_3,
 p0_4, p1_4, p2_4, p3_4, p4_4, p5_4, p6_4, p7_4, p8_4, p9_4, p10_4, p11_4, p12_4, p13_4, p14_4, p15_4 : bit;
 
-
+--adding necessary components (generate, carry and XOR)
 component my_gen
 port (A_in, B_in : in bit;P_out, G_out : out bit);
 end component;
@@ -34,10 +36,12 @@ component my_xor
 port (S,T : in bit; U: out bit);
 end component;
 
+--using Kogge-Stone architecture to create fast 16 bit adder
+--(G_i, P_i) = (g_i, p_i) dot (G_i-1, P_i-1)
+--The architecture is sequentially building from 0-1, 1-2, ... (n-1)-n to 0-2, 1-3, ... (n-2)-n so on 
 begin
 
-
-	gen0 : my_gen
+   gen0 : my_gen
 	port map (aa0,ab0,p0_0,g0_0);
 
 	gen1 : my_gen
