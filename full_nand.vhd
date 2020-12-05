@@ -1,6 +1,7 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 
+--defining NAND entity which will NAND inputs A-16 and B-16
 entity full_nand is
 	port( 
 	na0, na1, na2, na3, na4, na5, na6, na7, na8, na9, na10, na11, na12, na13, na14, na15,
@@ -8,12 +9,15 @@ entity full_nand is
 	nr0, nr1, nr2, nr3, nr4, nr5, nr6, nr7, nr8, nr9, nr10, nr11, nr12, nr13, nr14, nr15 : out bit);
 end entity;
 
+--defining structure pf NAND
 Architecture Struct of full_nand is
 
-component my_nand --declaring my_nand component to use for NAND operations
+--declaring my_nand component to use for NAND operations
+component my_nand 
 port(P,Q : in bit; R: out bit);
 end component;
 
+--individually NAND-ing a_i and b_i's
 begin
 		
 	nand0 : my_nand
