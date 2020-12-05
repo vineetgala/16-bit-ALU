@@ -1,5 +1,3 @@
---16 bit NAND
-
 library IEEE;
 use ieee.std_logic_1164.all;
 
@@ -17,6 +15,9 @@ port(S,T : in bit; U: out bit);
 end component;
 
 begin
+
+	xor0 : my_xor
+	port map(xa0,xb0,xr0);
 
 	xor1 : my_xor
 	port map(xa1,xb1,xr1);

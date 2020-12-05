@@ -1,3 +1,6 @@
+library IEEE;
+use ieee.std_logic_1164.all;
+
 entity ALU is 
 	port(S0,S1,A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15:in bit;
 	R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15,C,Z:buffer bit);
@@ -20,18 +23,18 @@ architecture Struct of ALU is
 	nr0,nr1,nr2,nr3,nr4,nr5,nr6,nr7,nr8,nr9,nr10,nr11,nr12,nr13,nr14,nr15:out bit);
 	end component;
 	
-	component full_add is
+	component full_adder is
 	port(aa0,aa1,aa2,aa3,aa4,aa5,aa6,aa7,aa8,aa9,aa10,aa11,aa12,aa13,aa14,aa15,ab0,ab1,ab2,ab3,ab4,ab5,ab6,ab7,ab8,ab9,ab10,ab11,ab12,ab13,ab14,ab15:in bit;
-	ar0,ar1,ar2,ar3,ar4,ar5,ar6,ar7,ar8,ar9,ar10,ar11,ar12,ar13,ar14,ar15,c:out bit);
+	ar0,ar1,ar2,ar3,ar4,ar5,ar6,ar7,ar8,ar9,ar10,ar11,ar12,ar13,ar14,ar15,ca:out bit);
 	end component;
 	
 	component full_subtract is
 	port(sa0,sa1,sa2,sa3,sa4,sa5,sa6,sa7,sa8,sa9,sa10,sa11,sa12,sa13,sa14,sa15,sb0,sb1,sb2,sb3,sb4,sb5,sb6,sb7,sb8,sb9,sb10,sb11,sb12,sb13,sb14,sb15:in bit;
-	sr0,sr1,sr2,sr3,sr4,sr5,sr6,sr7,sr8,sr9,sr10,sr11,sr12,sr13,sr14,sr15,c:out bit);
+	sr0,sr1,sr2,sr3,sr4,sr5,sr6,sr7,sr8,sr9,sr10,sr11,sr12,sr13,sr14,sr15,cs:out bit);
 	end component;
 	
-	component zero_bit is
-	port(zr0,zr1,zr2,zr3,zr4,zr5,zr6,zr7,zr8,zr9,zr10,zr11,zr12,zr13,zr14,zr15:in bit;z:out bit);
+	component full_zero is
+	port(zr0,zr1,zr2,zr3,zr4,zr5,zr6,zr7,zr8,zr9,zr10,zr11,zr12,zr13,zr14,zr15:in bit;zz:out bit);
 	end component;
 	
 	component MUX_4to1 is
@@ -47,7 +50,7 @@ Chip_NAND: full_nand
 port map(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15,
 NR_0,NR_1,NR_2,NR_3,NR_4,NR_5,NR_6,NR_7,NR_8,NR_9,NR_10,NR_11,NR_12,NR_13,NR_14,NR_15);
 
-Chip_ADD: full_add
+Chip_ADD: full_adder
 port map(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11, A12, A13, A14, A15, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9, B10, B11, B12, B13, B14, B15,
 AR_0,AR_1,AR_2,AR_3,AR_4,AR_5,AR_6,AR_7,AR_8,AR_9,AR_10,AR_11,AR_12,AR_13,AR_14,AR_15,C_A);
 
@@ -90,7 +93,7 @@ port map(S1,S0,XR_15,NR_15,AR_15,SR_15,R15);
 Chip_MUX17: MUX_4to1
 port map(S1,S0,'0','0',C_A,C_S,C);
 
-Chip_Zero: zero_bit
+Chip_Zero: full_zero
 port map(R0, R1, R2, R3, R4, R5, R6, R7, R8, R9, R10, R11, R12, R13, R14, R15,Z);
 
 end Struct;
