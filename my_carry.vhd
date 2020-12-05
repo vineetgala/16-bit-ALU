@@ -12,11 +12,11 @@ architecture behaviour of my_carry is
 signal temp:bit;
 
 component my_or --declaring my_or component to use for OR operations
-port(S,T : in bit; U: out bit);
+port(i_or1,i_or2 : in bit; o_myor: out bit);
 end component;
 
 component my_and --declaring my_and component to use for AND operations
-port(P,Q : in bit; R: out bit);
+port(i_and1,i_and2: in bit; o_myand: out bit);
 end component;
 
 begin

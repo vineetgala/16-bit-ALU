@@ -8,7 +8,21 @@ entity my_nand is
 end entity my_nand;
 
 architecture bv of my_nand is 
+signal bw:bit;
+
+component my_and is
+port(i_and1,i_and2:in bit;o_myand:out bit);
+end component;
+
+component my_not is
+port(V:in bit;W:out bit);
+end component;
 
 begin
-	R<=P nand Q;
+	Chip_and1: my_and
+	port map(P,Q,bw);
+	
+	Chip_not1: my_not
+	port map(bw,R);
+	
 end bv;

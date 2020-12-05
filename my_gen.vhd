@@ -14,7 +14,7 @@ port(S,T : in bit; U: out bit);
 end component;
 
 component my_and --declaring my_and component to use for AND operations
-port(P,Q : in bit; R: out bit);
+port(i_and1,i_and2 : in bit; o_myand: out bit);
 end component;
 
 begin

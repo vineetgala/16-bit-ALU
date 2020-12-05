@@ -12,7 +12,7 @@ Architecture Struct of full_zero is
 signal i0, i1, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14 : bit;
 
 component my_or 
-port(S,T : in bit; U: out bit);
+port(i_or1,i_or2 : in bit; o_myor: out bit);
 end component;
 
 component my_not 
