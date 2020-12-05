@@ -8,6 +8,7 @@ Performs :
   4. XOR operation
   
 Input : 2 16 bit numbers in two's complement format
+
 Output : 16 bit number, Zero bit, Carry bit
 
 Team Members : 
