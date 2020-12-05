@@ -12,7 +12,7 @@ Input : 2 16 bit numbers in two's complement format, S1 and S0 bits to specify o
 Output : 16 bit number, Zero bit, Carry bit
 
 Team Members : 
-Vineet Gala
-Siddharth Khandelwal
-Prasann Viswanathan
+Vineet Gala,
+Siddharth Khandelwal,
+Prasann Viswanathan,
 Manideep Vudayagiri
